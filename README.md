@@ -1,3 +1,16 @@
+<img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&size=45&duration=4000&color=00FF00&center=true&vCenter=true&width=1000&lines=HELLO;WELCOME+TO+MY+SPACE" />
+
+[![activity graph](https://github-readme-activity-graph.vercel.app/graph?username=lsjin0322&theme=github-compact)](https://github.com/Ashutosh00710/github-readme-activity-graph)
+
+
+
+<p align="center">
+  <img src="https://media.giphy.com/media/ZVik7pBtu9dNS/giphy.gif" width="350"/>
+</p>
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=39FF14&center=true&vCenter=true&width=1000&lines=Initializing...;Loading+Portfolio...;System+Online." />
+
+
+
 # 💻 Developer Archive
 > 개념 → 구현 → 개선의 학습 과정을 구조적으로 기록합니다.
 
