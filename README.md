@@ -65,13 +65,5 @@
 
 ---
 
-### 💡 APPROACH
-* 이해하지 못한 코드는 사용하지 않음
-* 문제를 가장 작은 단위로 나누어 구현
-* 오류 해결 과정을 기록하여 자산화
-* <img src="./images/gemini.png" width="18" height="18" align="center"/> <img src="./images/chatgpt.png" width="18" height="18" align="center"/> AI를 활용하여 개념의 본질을 파악
-
----
-
 ### 📝 SUMMARY
 단순 구현이 아니라 이해하고 개선하는 과정을 중요하게 생각합니다.
