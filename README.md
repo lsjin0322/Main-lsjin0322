@@ -22,8 +22,6 @@
 * <img src="https://img.shields.io/badge/Notion-000000?style=flat-square&logo=Notion&logoColor=white"/> [Main Dashboard](https://www.notion.so/34bf07c99a898066bfe7db89b14a78de?source=copy_link)
 * <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=Python&logoColor=white"/> [Language: Python](https://www.notion.so/python-34bf07c99a8980ab825ad47d6ce557e4?source=copy_link)
 * <img src="https://img.shields.io/badge/Java-007396?style=flat-square&logo=OpenJDK&logoColor=white"/> [Language: Java](https://www.notion.so/Java-34bf07c99a8980a8ae87e8f781dd903d?source=copy_link)
-* <img src="https://img.shields.io/badge/C%2B%2B-00599C?style=flat-square&logo=C%2B%2B&logoColor=white"/> [Language: C++](https://www.notion.so/C-34bf07c99a898026a28cca72e4951c8d?source=copy_link)
-* <img src="https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=Linux&logoColor=black"/> [Linux](https://www.notion.so/34bf07c99a89801eb178fd1cdf7cb2c4?source=copy_link)
 * <img src="https://img.shields.io/badge/Web-🌐-blue?style=flat-square"/> [Web](https://www.notion.so/Web-34bf07c99a898017979ffca55467ad4c?source=copy_link)
 
 ---
