@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Space</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="side-nav">
+        <div class="nav-item active" data-section="0">
+            <span class="num">01</span>
+            <span class="txt">HOME</span>
+            <div class="dot"></div>
+        </div>
+        <div class="nav-item" data-section="1">
+            <span class="num">02</span>
+            <span class="txt">ABOUT</span>
+            <div class="dot"></div>
+        </div>
+        <div class="nav-item" data-section="2">
+            <span class="num">03</span>
+            <span class="txt">PROJECTS</span>
+            <div class="dot"></div>
+        </div>
+        <div class="nav-item" data-section="3">
+            <span class="num">04</span>
+            <span class="txt">CONTACT</span>
+            <div class="dot"></div>
+        </div>
+        <div class="scroll-icon">
+            <div class="mouse"></div>
+            <span>SCROLL</span>
+        </div>
+    </nav>
+
+    <main class="main-container">
+        
+        <section class="section active" id="sec-01">
+            <div class="bg-bubble b1"></div>
+            <div class="bg-bubble b2"></div>
+            <header class="header">
+                <div class="gnb">
+                    <a href="#" data-target="1">About</a>
+                    <a href="#" data-target="2">Projects</a>
+                    <a href="#" data-target="3">Contact</a>
+                </div>
+            </header>
+            <div class="content-wrap">
+                <div class="main-bubble-wrap">
+                    <div class="bubble main-bubble">
+                        <h1>Welcome Friend</h1>
+                        <p>AI와 웹 기술로 사용자의 삶을 개선하는 개발자</p>
+                        <button class="btn-custom" data-target="1">
+                            <span>둘러보기</span>
+                            <div class="btn-bubble-effect"></div>
+                        </button>
+                    </div>
+                    <div class="bubble sub-bubble sm1" data-target="1"><span>소개</span></div>
+                    <div class="bubble sub-bubble sm2" data-target="2"><span>작업물</span></div>
+                    <div class="bubble sub-bubble sm3" data-target="2"><span>기록</span></div>
+                    <div class="bubble sub-bubble sm4" data-target="3"><span>연락처</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="sec-02">
+            <div class="content-wrap split">
+                <div class="left-content">
+                    <span class="sub-title">ABOUT ME</span>
+                    <h2>꾸준한 호기심으로<br>일상을 설계합니다.</h2>
+                    <p class="desc">안녕하세요!<br> 다양한 도구와 코드를 활용해 아이디어를 구체적인 결과물로 만드는 것을 즐깁니다.<br><br>단순히 정해진 기능을 구현하는 것에 그치지 않고,<br> 사용자의 입장에서 가장 편안하고 직관적인 흐름이 무엇인지 항상 고민합니다.</p>
+                    <button class="btn-custom" data-target="2">
+                        <span>프로젝트 보기</span>
+                        <div class="btn-bubble-effect"></div>
+                    </button>
+                </div>
+                <div class="right-content">
+                    <div class="bubble center-skill core-skill">
+                        <span class="per">Core Focus</span>
+                        <span>Web</span>
+                    </div>
+                    <div class="bubble skill-bubble sk1"><span class="per">Frontend</span><span>React</span></div>
+                    <div class="bubble skill-bubble sk2"><span class="per">Language</span><span>Python<br>JavaScript</span></div>
+                    <div class="bubble skill-bubble sk3"><span class="per">Backend</span><span>Firebase</span></div>
+                    <div class="bubble skill-bubble sk4"><span class="per">Real-time</span><span>Socket.IO</span></div>
+                    <div class="bubble skill-bubble sk5"><span class="per">Database</span><span>SQL</span></div>
+                    <div class="bubble skill-bubble sk6"><span class="per">Version</span><span>Git / GitHub</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="sec-03">
+            <div class="content-wrap split" style="flex-direction: row-reverse;">
+                <div class="left-content">
+                    <span class="sub-title">PROJECTS</span>
+                    <h2>직접 고민하고<br>만들어온 기록들</h2>
+                    <button class="btn-custom" data-target="3">
+                        <span>개발자 정보</span>
+                        <div class="btn-bubble-effect"></div>
+                    </button>
+                    <p class="hint">버튼을 누르면 상세 내용을 확인합니다.</p>
+                </div>
+                <div class="right-content project-grid">
+                    <div class="bubble project-bubble" data-project="p1">
+                        <img src="./image/Ananastalk.png" alt="Ananas Talk" class="project-img">
+                        <span class="p-title">Ananas Talk</span>
+                        <div class="project-hover-ring"></div>
+                    </div>
+                    <div class="bubble project-bubble" data-project="p2">
+                        <img src="./image/game.png" alt="Mini Game" class="project-img">
+                        <span class="p-title">은방울미니게임</span>
+                        <div class="project-hover-ring"></div>
+                    </div>
+                    <div class="bubble project-bubble" data-project="p3">
+                        <img src="./image/cv.png" alt="Fingerpoint" class="project-img">
+                        <span class="p-title">Fingerpoint Detection</span>
+                        <div class="project-hover-ring"></div>
+                    </div>
+                    <div class="bubble project-bubble" data-project="p4">
+                        <img src="./image/Loopi.png" alt="LOOPI" class="project-img">
+                        <span class="p-title">LOOPI</span>
+                        <div class="project-hover-ring"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="sec-04">
+            <div class="content-wrap center">
+                <span class="sub-title">SAY HELLO</span>
+                <h2>새로운 이야기와<br>협업은 언제나 환영입니다.</h2>
+                <p class="desc">이메일을 통해 언제든 편하게 메일을 남겨주세요.</p>
+                
+                <div class="contact-links">
+                    <div class="bubble link-bubble email-link" onclick="showEmailOptions(event)">
+                        <div class="icon">✉</div>
+                        <span class="label">Email</span>
+                        
+                        <!-- 이메일 팝업 -->
+                        <div class="email-options" id="emailOptions">
+                            <div class="email-content">
+                                <span class="email-text">lsujin0322@naver.com</span>
+                                <button class="copy-btn" onclick="copyEmail(event)" title="복사">
+                                    <span class="copy-icon">📋</span>
+                                </button>
+                            </div>
+                            <div class="copy-feedback" id="copyFeedback" style="display: none;">복사됨!</div>
+                        </div>
+                    </div>
+                    <div class="bubble link-bubble" onclick="window.open('https://github.com/lsjin0322', '_blank')">
+                        <div class="icon">Git</div>
+                        <span class="label">Github</span>
+                    </div>
+                    <div class="bubble link-bubble blog-link" onclick="showBlogOptions(event)">
+                        <div class="icon">📝</div>
+                        <span class="label">Blog</span>
+                        
+                        <!-- 블로그 옵션 팝업 -->
+                        <div class="blog-options" id="blogOptions">
+                            <div class="blog-option-item" onclick="window.open('https://blog.naver.com/lsujin0322', '_blank'); hideBlogOptions();">
+                                <span class="blog-title">📚 블로그 메인</span>
+                            </div>
+                            <div class="blog-option-item" onclick="window.open('https://blog.naver.com/lsujin0322/224304878761', '_blank'); hideBlogOptions();">
+                                <span class="blog-title">🎮 미니게임</span>
+                            </div>
+                            <div class="blog-option-item" onclick="window.open('https://blog.naver.com/lsujin0322/224319029404', '_blank'); hideBlogOptions();">
+                                <span class="blog-title">👆 3D 손가락 인식</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bubble link-bubble notion-link" onclick="window.open('https://app.notion.com/p/python-34bf07c99a8980ab825ad47d6ce557e4?source=copy_link', '_blank')">
+                        <img src="./image/notion.png" alt="Notion" class="notion-icon">
+                        <span class="label">Notion</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="modal-overlay" id="projectModal">
+        <div class="modal-window">
+            <div class="modal-glow-layer"></div> <button class="modal-close">&times;</button>
+            <div class="modal-content-box">
+                <div class="modal-image-zone">
+                    <img id="mImage" src="" alt="Project" class="modal-project-image">
+                </div>
+                <div class="modal-header-zone">
+                    <span class="modal-tag" id="mTag">Project Tag</span>
+                    <h3 class="modal-title" id="mTitle">Project Title</h3>
+                </div>
+                <p class="modal-desc" id="mDesc">상세 설명이 들어가는 자리입니다.</p>
+                <div class="modal-meta">
+                    <span class="meta-label">USED TECH</span>
+                    <div class="meta-value" id="mTech">React Native, Expo</div>
+                </div>
+                <div class="modal-links">
+                    <a id="mLink" href="#" target="_blank" class="modal-link-btn">GitHub</a>
+                    <a id="mDeploy" href="#" target="_blank" class="modal-link-btn" style="display:none;">배포 주소</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,604 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+    user-select: none;
+}
+
+body {
+    background: url('./image/ChatGPT_Image_2026년_7월_14일_오후_03_54_34.png') center/cover fixed;
+    background-color: #f5f1ed;
+    color: #fff;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+}
+
+.main-container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    perspective: 1200px;
+    transform-style: preserve-3d;
+}
+
+.section {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s ease;
+    transform: translateZ(-500px) scale(0.8);
+    overflow: hidden;
+}
+
+#sec-01 { 
+    background-image: url('./image/main_P.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+#sec-02 { 
+    background-image: url('./image/main_P.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: rgba(245,241,237,0.7);
+    background-blend-mode: overlay;
+}
+#sec-03 { 
+    background-image: url('./image/main_P.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: rgba(245,241,237,0.7);
+    background-blend-mode: overlay;
+}
+#sec-04 { 
+    background-image: url('./image/main_P.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: rgba(245,241,237,0.7);
+    background-blend-mode: overlay;
+}
+
+.section.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateZ(0) scale(1);
+    z-index: 2;
+}
+
+.content-wrap {
+    width: 85%;
+    max-width: 1400px;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+    transform: scale(0.9);
+    opacity: 0;
+    transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.1s, opacity 1.2s ease 0.1s;
+}
+
+.section.active .content-wrap {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.content-wrap.split { justify-content: space-between; }
+.content-wrap.center { flex-direction: column; justify-content: center; text-align: center; }
+
+/* 입체 물방울 글래스모피즘 베이스 */
+.bubble {
+    background: rgba(255, 255, 255, 0.32);
+    backdrop-filter: blur(18px) padding-box;
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(240, 235, 230, 0.6);
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    box-shadow: 
+        inset 0 10px 20px rgba(255, 255, 255, 0.5),
+        inset 0 -10px 20px rgba(0, 0, 0, 0.04),
+        0 15px 35px rgba(200, 190, 175, 0.12),
+        inset 0 2px 4px rgba(255,255,255,0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #4a4744;
+    font-weight: 600;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s, border-radius 0.5s, border-color 0.3s;
+    cursor: pointer;
+    will-change: border-radius, transform;
+}
+
+.bubble:hover {
+    border-color: rgba(220, 210, 200, 0.9);
+    box-shadow: 
+        inset 0 15px 25px rgba(255, 255, 255, 0.6),
+        inset 0 -15px 25px rgba(0, 0, 0, 0.03),
+        0 25px 45px rgba(200, 185, 165, 0.2);
+    animation-duration: 3.5s !important;
+}
+
+/* 1. HERO HOME SECTION */
+.header {
+    position: absolute;
+    top: 5vh;
+    width: 85%;
+    max-width: 1400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+.logo { font-weight: 700; font-size: 1.35rem; color: #5a5550; }
+.gnb a { text-decoration: none; color: #7a7169; margin-left: 2.5rem; font-size: 0.95rem; font-weight: 500; transition: color 0.3s; }
+.gnb a:hover { color: #4a4744; }
+
+.main-bubble-wrap { position: relative; width: 480px; height: 480px; }
+.main-bubble { width: 100%; height: 100%; color: #5a5550; padding: 2rem; text-align: center; animation: liquid-blob 9s infinite linear; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.main-bubble h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.8rem; letter-spacing: -1px; }
+.main-bubble p { font-size: 0.95rem; opacity: 0.8; font-weight: 400; margin-bottom: 1.8rem; word-break: keep-all; }
+
+/* [디자인 변경] 라운드 버튼 및 물방울 팝 효과 */
+.btn-custom {
+    position: relative;
+    padding: 0.8rem 2.4rem;
+    border-radius: 30px;
+    border: 1px solid rgba(220, 210, 200, 0.8);
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #5a5550;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(200, 190, 175, 0.12), inset 0 4px 10px rgba(255, 255, 255, 0.5);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-custom span {
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+
+/* 버튼 호버 시 내부에서 물방울이 팽창하듯 밀려 나오는 연출 효과 */
+.btn-bubble-effect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.5s ease, height 0.5s ease;
+    z-index: 1;
+    filter: blur(4px);
+}
+
+.btn-custom:hover {
+    transform: translateY(-3px);
+    border-color: rgba(200, 190, 180, 0.95);
+    box-shadow: 0 12px 28px rgba(200, 190, 175, 0.2), inset 0 4px 12px rgba(255, 255, 255, 0.6);
+}
+
+.btn-custom:hover .btn-bubble-effect {
+    width: 250px;
+    height: 250px;
+}
+
+.btn-custom:active {
+    transform: translateY(-1px);
+}
+
+.sub-bubble { position: absolute; font-size: 0.9rem; color: #6a6157; }
+.sm1 { width: 90px; height: 90px; top: -10px; left: -20px; animation: liquid-blob 7s infinite linear; }
+.sm2 { width: 105px; height: 105px; top: 30px; right: -50px; animation: liquid-blob-reverse 8s infinite linear; }
+.sm3 { width: 95px; height: 95px; bottom: 10px; left: -30px; animation: liquid-blob 7.5s infinite linear; }
+.sm4 { width: 95px; height: 95px; bottom: 40px; right: -40px; animation: liquid-blob-reverse 8.5s infinite linear; }
+
+/* 2. ABOUT ME SECTION */
+.left-content { width: 42%; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; text-align: center; }
+.sub-title { font-size: 0.85rem; font-weight: 700; letter-spacing: 2px; color: #6a6157; margin-bottom: 1rem; }
+.left-content h2, .content-wrap h2 { font-size: 2.6rem; color: #3a3530; font-weight: 700; line-height: 1.25; margin-bottom: 1.5rem; word-break: keep-all; }
+.desc { color: #5a5550; font-size: 0.95rem; line-height: 1.7; margin-bottom: 2rem; margin-top: 2rem; font-weight: 400; word-break: keep-all; }
+
+.right-content { position: relative; width: 53%; height: 100%; }
+.core-skill {
+    width: 210px; height: 210px;
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.15rem; color: #5a5550;
+    background: rgba(255, 255, 255, 0.38);
+    border: 1.5px solid rgba(220, 210, 200, 0.7);
+    animation: liquid-blob 10s infinite linear;
+    z-index: 5;
+}
+.core-skill .per { font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; color: #8a7f79; margin-bottom: 4px; }
+
+.skill-bubble { position: absolute; font-size: 0.8rem; color: #6a6157; }
+.skill-bubble .per { font-size: 0.65rem; opacity: 0.7; margin-bottom: 2px; }
+.sk1 { width: 85px; height: 85px; top: 12%; left: 45%; animation: liquid-blob 6s infinite linear; }
+.sk2 { width: 95px; height: 95px; top: 22%; right: 5%; animation: liquid-blob-reverse 7s infinite linear; }
+.sk3 { width: 90px; height: 90px; bottom: 25%; right: 8%; animation: liquid-blob 6.5s infinite linear; }
+.sk4 { width: 85px; height: 85px; bottom: 8%; left: 52%; animation: liquid-blob-reverse 7.5s infinite linear; }
+.sk5 { width: 85px; height: 85px; bottom: 15%; left: 22%; animation: liquid-blob 8s infinite linear; }
+.sk6 { width: 95px; height: 95px; top: 40%; left: 5%; animation: liquid-blob-reverse 6.8s infinite linear; }
+
+/* 3. MY PROJECTS SECTION */
+.project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; align-items: center; justify-items: center; }
+.project-bubble {
+    width: 210px; height: 210px; font-size: 0.85rem; position: relative; overflow: visible; text-align: center; padding: 1rem;
+    animation: liquid-blob 9s infinite linear;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 
+        0 15px 40px rgba(220, 210, 200, 0.15),
+        0 0 60px rgba(220, 210, 200, 0.1),
+        inset 0 2px 6px rgba(255, 255, 255, 0.4);
+}
+
+.project-img {
+    width: 90%;
+    height: 120px;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 30px;
+    margin-bottom: 8px;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), inset 0 2px 6px rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(220, 210, 200, 0.3);
+}
+
+/* [디자인 변경] 화살표 대신 마우스 호버 시 확장되는 은은한 물방울 테두리 링 효과 */
+.project-hover-ring {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    border: none;
+    border-radius: 50%;
+    transition: all 0.5s ease;
+    pointer-events: none;
+    transform: scale(0.9);
+    background: radial-gradient(circle, rgba(220, 210, 200, 0.2) 0%, rgba(220, 210, 200, 0.05) 70%, rgba(220, 210, 200, 0) 100%);
+}
+.project-bubble:hover .project-hover-ring {
+    transform: scale(1.05);
+    background: radial-gradient(circle, rgba(220, 210, 200, 0.35) 0%, rgba(220, 210, 200, 0.15) 70%, rgba(220, 210, 200, 0) 100%);
+    animation: spin-slow 12s infinite linear;
+}
+.p-title { margin-top: 5px; z-index: 2; font-weight: 600; color: #4a4744; transition: color 0.3s; }
+.project-bubble:hover .p-title { color: #5a5550; }
+
+@keyframes spin-slow {
+    100% { transform: scale(1.02) rotate(360deg); }
+}
+
+.mockup-img { width: 60px; height: 75px; border-radius: 8px; margin-bottom: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.06); }
+.mockup-img.pink { background: linear-gradient(to bottom, #e8d5c8, #d9e5df); }
+.mockup-img.purple { background: linear-gradient(to bottom, #e0d4c8, #d5dfd8); }
+.mockup-play { width: 40px; height: 40px; background: rgba(255,255,255,0.5); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; color: #6a6157; font-size: 1.1rem; }
+.hint { font-size: 0.8rem; color: #6a6157; margin-top: 1.5rem; }
+
+/* 4. CONTACT SECTION */
+.contact-links { display: flex; gap: 2.5rem; margin-top: 3rem; position: relative; }
+.link-bubble { width: 110px; height: 110px; font-size: 0.85rem; color: #5a5550; animation: liquid-blob-reverse 6s infinite linear; position: relative; }
+.email-link { position: relative; }
+.link-bubble .icon { font-size: 1.4rem; margin-bottom: 6px; }
+.notion-icon { width: 32px; height: 32px; margin-bottom: 6px; object-fit: contain; }
+
+/* 블로그 옵션 팝업 */
+.blog-options {
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    flex-direction: column;
+    gap: 0.8rem;
+    background: rgba(255, 255, 255, 0.42);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border: 1px solid rgba(220, 210, 200, 0.65);
+    border-radius: 25px;
+    padding: 1.2rem 1.8rem;
+    box-shadow: 0 20px 60px rgba(200, 190, 175, 0.15), inset 0 12px 24px rgba(255,255,255,0.5);
+    z-index: 100;
+    min-width: 200px;
+}
+
+.blog-options.show {
+    display: flex;
+}
+
+/* 이메일 팝업 */
+.email-options {
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    flex-direction: column;
+    gap: 0.8rem;
+    background: rgba(255, 255, 255, 0.42);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border: 1px solid rgba(220, 210, 200, 0.65);
+    border-radius: 25px;
+    padding: 1.2rem 1.8rem;
+    box-shadow: 0 20px 60px rgba(200, 190, 175, 0.15), inset 0 12px 24px rgba(255,255,255,0.5);
+    z-index: 100;
+    min-width: 240px;
+    align-items: center;
+}
+
+.email-options.show {
+    display: flex;
+}
+
+.email-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.email-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #5a5550;
+    white-space: nowrap;
+}
+
+.copy-btn {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(220, 210, 200, 0.4);
+    border-radius: 15px;
+    padding: 0.6rem 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.copy-btn:hover {
+    background: rgba(255, 255, 255, 0.7);
+    border-color: rgba(220, 210, 200, 0.7);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(200, 190, 175, 0.1);
+}
+
+.copy-icon {
+    pointer-events: none;
+}
+
+.copy-feedback {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #6a6157;
+    animation: fadeInOut 1.5s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.blog-option-item {
+    padding: 0.8rem 1.2rem;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(220, 210, 200, 0.4);
+    border-radius: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-weight: 600;
+    color: #5a5550;
+    font-size: 0.85rem;
+}
+
+.blog-option-item:hover {
+    background: rgba(255, 255, 255, 0.7);
+    border-color: rgba(220, 210, 200, 0.7);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(200, 190, 175, 0.12);
+}
+
+.blog-title {
+    white-space: nowrap;
+}
+
+/* 좌측 네비게이션 바 */
+.side-nav { position: fixed; left: 4rem; top: 50%; transform: translateY(-50%); z-index: 200; display: flex; flex-direction: column; gap: 2.5rem; }
+.nav-item { display: flex; align-items: center; gap: 1.5rem; cursor: pointer; position: relative; opacity: 0.35; transition: opacity 0.4s; }
+.nav-item .num { font-size: 1.25rem; font-weight: 700; color: #7a7169; width: 25px; }
+.nav-item .txt { font-size: 0.8rem; font-weight: 700; color: #6a6157; opacity: 0; transform: translateX(10px); transition: all 0.4s; position: relative; white-space: nowrap; letter-spacing: 1px; margin-left: 8px; }
+.nav-item .dot { display: none; }
+.nav-item:hover .txt, .nav-item.active .txt { opacity: 1; transform: translateX(0); }
+.nav-item.active { opacity: 1; }
+.nav-item.active .dot { display: none; }
+
+.scroll-icon { position: absolute; bottom: -12vh; left: 0; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; opacity: 0.5; }
+.scroll-icon span { font-size: 0.65rem; letter-spacing: 1px; color: #6a6157; font-weight: 700; }
+.mouse { width: 16px; height: 26px; border: 2px solid #6a6157; border-radius: 10px; position: relative; }
+.mouse::before { content: ''; position: absolute; top: 6px; left: 50%; transform: translateX(-50%); width: 2px; height: 5px; background: #6a6157; border-radius: 1px; animation: mouse-scroll 1.6s infinite; }
+
+/* ==========================================================================
+   [틀 업그레이드] 오로라 네온 발광 프레임 틀 구조화 디자인
+   ========================================================================== */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(26, 29, 41, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 1000; display: flex; align-items: center; justify-content: center;
+    opacity: 0; visibility: hidden; transition: all 0.4s ease;
+}
+
+.modal-overlay.open { opacity: 1; visibility: visible; }
+
+/* 메인 프레임 틀: 완벽한 비정형 라운딩 글래스 보드 */
+.modal-window {
+    position: relative;
+    background: rgba(255, 255, 255, 0.42);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border: 1px solid rgba(220, 210, 200, 0.65);
+    /* 일반 사각형 틀을 파괴하고 물방울 테마에 최적화된 유기적 둥근 틀 설계 */
+    border-radius: 60% 40% 55% 45% / 45% 55% 45% 55%;
+    width: 92%; max-width: 520px; min-height: auto;
+    padding: 2.5rem 3rem;
+    box-shadow: 0 40px 80px rgba(200, 190, 175, 0.15), inset 0 12px 24px rgba(255,255,255,0.5);
+    transform: scale(0.8) rotate(-3deg); transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    color: #5a5550;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-overlay.open .modal-window { transform: scale(1) rotate(0deg); }
+
+/* 내부 테두리를 따라 흐르는 아우라 서라운드 광채 장식 틀 */
+.modal-glow-layer {
+    position: absolute;
+    top: -50%; left: -50%; width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(230, 220, 205, 0.3) 0%, rgba(220, 210, 195, 0.3) 40%, rgba(255,255,255,0) 70%);
+    animation: rotate-glow 15s infinite linear;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes rotate-glow {
+    100% { transform: rotate(360deg); }
+}
+
+/* 내부 실질 콘텐츠 영역 정렬 */
+.modal-content-box {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    text-align: center;
+}
+
+.modal-close {
+    position: absolute; top: 2rem; right: 2.5rem; background: none; border: none;
+    font-size: 1.8rem; cursor: pointer; color: #6a6157; transition: transform 0.3s;
+    z-index: 10;
+}
+.modal-close:hover { transform: rotate(90deg) scale(1.1); color: #8a7f79; }
+
+.modal-header-zone { margin-bottom: 1.5rem; }
+.modal-tag { display: inline-block; font-size: 0.75rem; font-weight: 700; color: #8a7f79; background: rgba(255,255,255,0.7); padding: 0.35rem 0.9rem; border-radius: 15px; margin-bottom: 0.8rem; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
+.modal-title { font-size: 1.8rem; font-weight: 700; color: #5a5550; letter-spacing: -0.5px; }
+.modal-desc { font-size: 0.95rem; line-height: 1.7; margin-bottom: 2rem; color: #6a6157; word-break: keep-all; padding: 0 1rem; }
+
+/* 메타 정보 칩 레이아웃 시스템 */
+.modal-meta {
+    border-top: 1px dashed rgba(255,255,255,0.5);
+    padding-top: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+}
+.meta-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; color: #9a8f87; }
+.meta-value { font-size: 0.85rem; font-weight: 600; color: #7a7169; background: rgba(255,255,255,0.5); padding: 0.2rem 0.8rem; border-radius: 10px; }
+
+/* 모달 이미지 영역 */
+.modal-image-zone {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.modal-project-image {
+    max-width: 95%;
+    max-height: 180px;
+    border-radius: 35px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1), inset 0 2px 6px rgba(255, 255, 255, 0.4);
+    object-fit: contain;
+    object-position: center;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(220, 210, 200, 0.3);
+}
+
+/* 모달 링크 버튼 */
+.modal-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.modal-link-btn {
+    display: inline-block;
+    padding: 0.6rem 1.4rem;
+    background: rgba(180, 165, 150, 0.15);
+    border: 1px solid rgba(180, 165, 150, 0.4);
+    border-radius: 20px;
+    color: #7a7169;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.modal-link-btn:hover {
+    background: rgba(180, 165, 150, 0.3);
+    border-color: rgba(180, 165, 150, 0.7);
+    transform: translateY(-2px);
+}
+
+/* 키프레임 */
+@keyframes liquid-blob {
+    0% { border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%; }
+    25% { border-radius: 70% 30% 52% 48% / 60% 40% 60% 40%; }
+    50% { border-radius: 40% 60% 35% 65% / 40% 60% 40% 60%; }
+    75% { border-radius: 55% 45% 65% 35% / 55% 48% 52% 45%; }
+    100% { border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%; }
+}
+@keyframes liquid-blob-reverse {
+    0% { border-radius: 55% 45% 65% 35% / 55% 48% 52% 45%; }
+    25% { border-radius: 40% 60% 35% 65% / 40% 60% 40% 60%; }
+    50% { border-radius: 70% 30% 52% 48% / 60% 40% 60% 40%; }
+    75% { border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%; }
+    100% { border-radius: 55% 45% 65% 35% / 55% 48% 52% 45%; }
+}
+@keyframes mouse-scroll { 0% { opacity: 1; transform: translate3d(-50%, 0, 0); } 100% { opacity: 0; transform: translate3d(-50%, 8px, 0); } }
+@keyframes float-slow { 0%, 100% { transform: translate3d(0, 0, 0); } 50% { transform: translate3d(4px, -10px, 0); } }
+
+.bg-bubble { position: absolute; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,0.38) 0%, rgba(255,255,255,0) 70%); filter: blur(45px); z-index: 1; pointer-events: none; }
+.b1 { width: 400px; height: 400px; top: -10%; right: 10%; animation: float-slow 12s infinite ease-in-out; }
+.b2 { width: 500px; height: 500px; bottom: -10%; left: 10%; animation: float-slow 16s infinite ease-in-out; animation-delay: -2s; }
