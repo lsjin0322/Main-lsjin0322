@@ -1,0 +1,19 @@
+{
+  "name": "sujin-portfolio",
+  "version": "1.0.0",
+  "description": "Sujin's Personal Portfolio Website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["portfolio", "sujin"],
+  "author": "SJ",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}
